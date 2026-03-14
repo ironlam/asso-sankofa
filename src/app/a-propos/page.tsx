@@ -109,7 +109,7 @@ export default function AProposPage() {
                   </span>
                 </div>
                 <h3 className="text-lg font-bold text-indigo font-display">
-                  Ciré Diaby
+                  Mouhamadou Ciré Diaby
                 </h3>
                 <p className="text-gold text-sm font-medium mb-3">
                   Co-Président
