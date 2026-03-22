@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Playfair_Display, Libre_Franklin } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -42,6 +43,13 @@ export default function RootLayout({
       className={`${playfair.variable} ${libreFranklin.variable}`}
     >
       <body className="antialiased">
+        {process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
+          <Script
+            src={`${process.env.NEXT_PUBLIC_UMAMI_URL || "https://cloud.umami.is"}/script.js`}
+            data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+            strategy="afterInteractive"
+          />
+        )}
         <Header />
         <main className="pt-16">{children}</main>
         <Footer />
