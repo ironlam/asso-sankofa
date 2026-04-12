@@ -17,8 +17,8 @@ export default function ContribuerPage() {
             Contribuer
           </h1>
           <p className="text-lg text-slate/60 max-w-2xl">
-            Plusieurs manières de participer à la transparence démocratique,
-            selon vos compétences et vos envies.
+            Code, données, vérification des sources ou financement : voici
+            comment aider concrètement.
           </p>
         </div>
       </section>
@@ -156,8 +156,7 @@ export default function ContribuerPage() {
                 </p>
                 <p className="text-slate/60 text-sm leading-relaxed mb-6">
                   Même un petit montant contribue à couvrir les frais de
-                  serveurs, de noms de domaine et de développement. Chaque euro
-                  compte.
+                  serveurs, de noms de domaine et de développement.
                 </p>
                 <a
                   href="https://tipeee.com/poligraph"

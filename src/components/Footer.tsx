@@ -15,8 +15,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-cream/60 leading-relaxed">
-              Association loi 1901 pour la transparence démocratique et la
-              déontologie publique par le numérique.
+              Association loi 1901. Poligraph &amp; CNuisible.
             </p>
             <p className="text-xs text-cream/40 mt-3">RNA : W931031256</p>
           </div>

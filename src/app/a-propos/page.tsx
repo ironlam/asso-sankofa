@@ -51,18 +51,11 @@ export default function AProposPage() {
                 </em>
                 .
               </p>
-              <p className="text-slate/70 leading-relaxed mb-6">
-                Ce symbole incarne notre mission : aller chercher la
-                connaissance oubliée, dispersée ou inaccessible pour la rendre
-                utile aujourd{"'"}hui. Que ce soient des données politiques, des
-                faits historiques ou des savoirs civiques, nous croyons que
-                comprendre le passé est la condition pour agir dans le présent.
-              </p>
               <p className="text-slate/70 leading-relaxed">
-                L{"'"}œuf doré que l{"'"}oiseau récupère représente cette
-                connaissance. Une connaissance qui appartient à tous et que nous
-                nous efforçons de restituer aux citoyens : structurée, sourcée,
-                accessible et libre.
+                Appliqué à ce qu{"'"}on fait : les données publiques existent
+                (votes, affaires, sanctions, patrimoine), mais elles sont
+                dispersées, illisibles, rarement croisées. Notre travail, c
+                {"'"}est d{"'"}aller les chercher et de les rendre utilisables.
               </p>
             </div>
           </ScrollReveal>
@@ -93,9 +86,7 @@ export default function AProposPage() {
                   Co-Président et fondateur
                 </p>
                 <p className="text-slate/60 text-sm leading-relaxed">
-                  Ingénieur logiciel. Créateur de Poligraph. Convaincu que l
-                  {"'"}accès libre à la connaissance et aux données publiques est
-                  un levier pour la démocratie et l{"'"}éducation citoyenne.
+                  Ingénieur logiciel. Créateur de Poligraph et CNuisible.
                 </p>
               </div>
             </ScrollReveal>

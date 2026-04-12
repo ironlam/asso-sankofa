@@ -14,15 +14,15 @@ export default function HomePage() {
           </div>
 
           <h1 className="mt-8 text-5xl md:text-7xl font-bold text-cream leading-tight animate-fade-in-up opacity-0 delay-200">
-            Éclairer le présent
+            Données politiques.
             <br />
-            <span className="text-gold">par les données</span>
+            <span className="text-gold">Transparence réelle.</span>
           </h1>
 
           <p className="mt-6 text-lg md:text-xl text-cream/70 max-w-2xl mx-auto leading-relaxed animate-fade-in-up opacity-0 delay-400">
-            Association citoyenne pour la transparence démocratique. Nous
-            développons des outils libres et gratuits qui rendent les données
-            politiques accessibles à tous.
+            Nous développons des outils open source pour cartographier les
+            votes, les affaires judiciaires et les manquements déontologiques
+            des médias et responsables politiques français.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up opacity-0 delay-600">
@@ -47,10 +47,10 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-6">
           <ScrollReveal>
             <h2 className="text-3xl md:text-4xl font-bold text-indigo text-center mb-4">
-              Notre mission
+              Ce qu{"'"}on fait concrètement
             </h2>
             <p className="text-center text-slate/60 max-w-xl mx-auto mb-16">
-              Trois piliers pour une démocratie plus transparente
+              Trois chantiers, tous open source
             </p>
           </ScrollReveal>
 
@@ -72,7 +72,7 @@ export default function HomePage() {
                 icon: "🎓",
                 title: "Éducation civique",
                 description:
-                  "Favoriser l'engagement citoyen et la compréhension du fonctionnement démocratique par la vulgarisation des données.",
+                  "Expliquer concrètement ce que votent les élus, comment fonctionne une mise en examen, à qui appartient quel média.",
               },
             ].map((pillar, i) => (
               <ScrollReveal key={pillar.title} className={`delay-${(i + 1) * 100}`}>
@@ -226,11 +226,12 @@ export default function HomePage() {
       <section className="py-24 bg-cream-dark">
         <ScrollReveal className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-indigo mb-6">
-            Soutenez la transparence politique
+            Les serveurs coûtent de l{"'"}argent, le code prend du temps
           </h2>
           <p className="text-slate/70 leading-relaxed mb-10 max-w-xl mx-auto">
-            Sankofa est un projet citoyen indépendant. Votre soutien nous permet
-            de maintenir et développer nos outils en accès libre et gratuit.
+            Sankofa n{"'"}a pas de publicité, pas de financement privé. Votre
+            don couvre directement les coûts d{"'"}hébergement et de
+            développement.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

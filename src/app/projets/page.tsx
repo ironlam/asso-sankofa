@@ -18,8 +18,8 @@ export default function ProjetsPage() {
             Nos projets
           </h1>
           <p className="text-lg text-slate/60 max-w-2xl">
-            Des outils citoyens pour la transparence démocratique et la
-            déontologie journalistique.
+            Poligraph cartographie la vie politique française. CNuisible
+            documente les manquements de CNews.
           </p>
         </div>
       </section>
@@ -296,8 +296,7 @@ export default function ProjetsPage() {
               Prochains projets
             </h2>
             <p className="text-slate/60 max-w-xl mx-auto mb-12">
-              D{"'"}autres outils sont en réflexion pour renforcer la
-              transparence démocratique et la déontologie publique.
+              D{"'"}autres chantiers sont ouverts.
             </p>
           </ScrollReveal>
 
