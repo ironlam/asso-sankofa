@@ -17,8 +17,7 @@ export default function AProposPage() {
             À propos
           </h1>
           <p className="text-lg text-slate/60 max-w-2xl">
-            L{"'"}histoire d{"'"}un symbole africain au service de la
-            connaissance et de la démocratie.
+            Ce que fait Sankofa, d{"'"}où vient le nom, qui est derrière.
           </p>
         </div>
       </section>
