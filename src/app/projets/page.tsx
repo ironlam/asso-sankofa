@@ -18,7 +18,8 @@ export default function ProjetsPage() {
             Nos projets
           </h1>
           <p className="text-lg text-slate/60 max-w-2xl">
-            Des outils open source pour éclairer la vie politique française.
+            Des outils citoyens pour la transparence démocratique et la
+            déontologie journalistique.
           </p>
         </div>
       </section>
@@ -157,6 +158,128 @@ export default function ProjetsPage() {
                       data.gouv.fr
                     </a>{" "}
                     comme service open data citoyen.
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* CNuisible */}
+      <section className="py-16 bg-cream">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+            <ScrollReveal direction="left" className="lg:col-span-3">
+              <div className="flex items-center gap-3 mb-2">
+                <span className="px-3 py-1 bg-terra/10 text-terra text-xs font-semibold rounded-full uppercase tracking-wider">
+                  En production
+                </span>
+              </div>
+              <h2 className="text-3xl font-bold text-indigo mb-6">CNuisible</h2>
+              <p className="text-slate/70 leading-relaxed mb-6">
+                Le dossier factuel contre CNews. CNuisible documente chaque
+                sanction de l{"'"}Arcom, chaque avis du Conseil de déontologie
+                journalistique (CDJM), chaque manquement à la Charte de Munich
+                (1971). Tout est sourcé, vérifiable, partageable.
+              </p>
+              <p className="text-slate/70 leading-relaxed mb-8">
+                Le projet est né du constat que CNews représente aujourd{"'"}hui
+                le cas le plus documenté de manquement chronique aux obligations
+                du journalisme sur la TNT française. CNuisible ne juge pas les
+                opinions : il mesure l{"'"}écart entre la pratique de la chaîne
+                et les standards professionnels.
+              </p>
+
+              <h3 className="text-lg font-bold text-indigo mb-4 font-display">
+                Fonctionnalités
+              </h3>
+              <ul className="space-y-3 mb-8">
+                {[
+                  "Documentation factuelle des infractions sourcées",
+                  "Mapping vers les 10 devoirs de la Charte de Munich",
+                  "Témoignages anonymisés de journalistes ex-CNews",
+                  "Cartographie de la galaxie médiatique Bolloré",
+                  "Export PDF du dossier pour l'Arcom et les élus",
+                  "Filtres par type d'infraction et article de la Charte",
+                  "Page \"Pourquoi ce site\" avec méthodologie complète",
+                ].map((feature) => (
+                  <li key={feature} className="flex items-start gap-3">
+                    <span className="text-terra mt-0.5">&#9670;</span>
+                    <span className="text-slate/70">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <h3 className="text-lg font-bold text-indigo mb-4 font-display">
+                Stack technique
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-8">
+                {[
+                  "Next.js 16",
+                  "React 19",
+                  "TypeScript",
+                  "Supabase",
+                  "Tailwind CSS 4",
+                  "Vercel",
+                ].map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1 bg-indigo/5 text-indigo text-xs font-medium rounded-full"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <a
+                href="https://cnuisible.fr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-terra text-white font-semibold rounded-lg hover:bg-terra-light transition-colors duration-300"
+              >
+                Visiter cnuisible.fr
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </ScrollReveal>
+
+            <ScrollReveal direction="right" className="lg:col-span-2">
+              <div className="space-y-6">
+                <div className="p-6 bg-white rounded-2xl border border-indigo/5">
+                  <h3 className="text-sm font-semibold text-indigo/50 uppercase tracking-wider mb-6">
+                    Chiffres clés
+                  </h3>
+                  <div className="space-y-6">
+                    {[
+                      { value: "32", label: "infractions documentées" },
+                      { value: "6", label: "sanctions Arcom" },
+                      { value: "13", label: "avis CDJM" },
+                      { value: "9", label: "témoignages publiés" },
+                      { value: "10", label: "devoirs de Munich couverts" },
+                    ].map((stat) => (
+                      <div
+                        key={stat.label}
+                        className="flex items-baseline justify-between"
+                      >
+                        <span className="text-2xl font-bold text-terra font-display">
+                          {stat.value}
+                        </span>
+                        <span className="text-sm text-slate/50">
+                          {stat.label}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="p-6 bg-terra/5 rounded-2xl border border-terra/10">
+                  <h3 className="text-sm font-semibold text-terra uppercase tracking-wider mb-3">
+                    Démarche éditoriale
+                  </h3>
+                  <p className="text-sm text-slate/60">
+                    Chaque fait est sourcé par une URL vérifiable (Arcom, CDJM,
+                    Conseil d{"'"}État, presse). Formulation factuelle, revue
+                    humaine avant publication, droit de réponse ouvert.
                   </p>
                 </div>
               </div>

@@ -156,6 +156,72 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Projet - CNuisible */}
+      <section className="py-24 bg-cream">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <ScrollReveal direction="left">
+              <div className="relative">
+                <div className="aspect-video bg-white rounded-2xl border border-indigo/10 overflow-hidden flex items-center justify-center p-12">
+                  <div className="text-center">
+                    <p className="text-6xl md:text-7xl font-bold text-indigo font-display">
+                      CNuisible
+                    </p>
+                    <p className="mt-3 text-slate/50 text-sm">
+                      Nuisible à la démocratie
+                    </p>
+                  </div>
+                </div>
+                <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-terra/10 rounded-full blur-2xl" />
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal direction="right">
+              <p className="text-terra font-semibold text-sm tracking-widest uppercase mb-3">
+                Nouveau projet
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-indigo mb-6">
+                CNuisible
+              </h2>
+              <p className="text-slate/70 leading-relaxed mb-6">
+                Le dossier factuel contre CNews. Chaque sanction de l{"'"}Arcom,
+                chaque avis du CDJM, chaque manquement à la Charte de Munich,
+                documenté et sourcé. Un outil de contrôle citoyen de la
+                déontologie journalistique.
+              </p>
+              <div className="grid grid-cols-3 gap-4 mb-8">
+                {[
+                  { value: "32", label: "infractions documentées" },
+                  { value: "6", label: "sanctions Arcom" },
+                  { value: "9", label: "témoignages publiés" },
+                ].map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="p-4 bg-indigo/5 rounded-lg"
+                  >
+                    <div className="text-2xl font-bold text-terra font-display">
+                      {stat.value}
+                    </div>
+                    <div className="text-xs text-slate/50 mt-1">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <a
+                href="https://cnuisible.fr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-terra text-white font-semibold rounded-lg hover:bg-terra-light transition-colors duration-300"
+              >
+                Visiter cnuisible.fr
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Soutenir */}
       <section className="py-24 bg-cream-dark">
         <ScrollReveal className="max-w-3xl mx-auto px-6 text-center">

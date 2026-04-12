@@ -142,7 +142,7 @@ export default function AProposPage() {
                 { label: "Date de création", value: "1er mars 2026" },
                 {
                   label: "Siège social",
-                  value: "6, rue de Saint-Gratien, 93800 Épinay-sur-Seine",
+                  value: "Seine-Saint-Denis (domiciliation en cours)",
                 },
                 { label: "Email", value: "contact@asso-sankofa.org" },
               ].map((info) => (
