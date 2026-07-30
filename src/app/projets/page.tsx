@@ -93,13 +93,14 @@ export default async function ProjetsPage() {
       {/* 1. En-tete de page */}
       <section className="border-b border-rule">
         <Container className="py-16">
-          <Overline className="mb-6">Nos chantiers</Overline>
+          <Overline className="mb-6">Projets</Overline>
           <h1 className="mb-6 text-[clamp(34px,9vw,46px)] font-bold leading-[1.0] tracking-[-0.04em] lg:text-[clamp(40px,4.8vw,64px)]">
             Nos projets
           </h1>
           <p className="max-w-[60ch] text-[19px] leading-[1.55] text-ink-soft">
-            Deux projets en production, deux chantiers ouverts. Tout le code est
-            open source, toutes les données sont sourcées.
+            Poligraph cartographie la vie politique française. CNuisible
+            documente les manquements à la déontologie journalistique. Deux
+            autres chantiers sont ouverts.
           </p>
         </Container>
       </section>

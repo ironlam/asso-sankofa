@@ -48,12 +48,13 @@ export default function AProposPage() {
       {/* 1. En-tete */}
       <section className="border-b border-rule">
         <Container className="py-16">
-          <Overline className="mb-6">L'association</Overline>
+          <Overline className="mb-6">À propos</Overline>
           <h1 className="mb-6 text-[clamp(34px,9vw,46px)] font-bold leading-[1.0] tracking-[-0.04em] lg:text-[clamp(40px,4.8vw,64px)]">
             Ce que fait Sankofa
           </h1>
           <p className="max-w-[60ch] text-[19px] leading-[1.55] text-ink-soft">
-            Ce que fait Sankofa, d'où vient le nom, qui est derrière.
+            D'où vient le nom, qui est derrière, et ce à quoi l'association
+            s'engage statutairement.
           </p>
         </Container>
       </section>

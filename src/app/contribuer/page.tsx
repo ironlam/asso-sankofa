@@ -71,11 +71,12 @@ const VOIES = [
 export default function ContribuerPage() {
   return (
     <>
-      {/* 1. En-tete */}
-      <section className="border-b border-rule">
-        <Container className="grid grid-cols-1 py-16 lg:grid-cols-[1.3fr_1fr] lg:gap-12">
+      {/* 1. En-tete. La maquette n'a pas de filet bas ici : padding 72/56,
+          gap 56, colonnes alignees sur la ligne de base du bas. */}
+      <section>
+        <Container className="grid grid-cols-1 pt-[72px] pb-14 lg:grid-cols-[1.3fr_1fr] lg:items-end lg:gap-14">
           <div>
-            <Overline className="mb-6">Nous aider</Overline>
+            <Overline className="mb-6">Contribuer</Overline>
             <h1 className="mb-6 text-[clamp(34px,9vw,46px)] font-bold leading-[1.0] tracking-[-0.04em] lg:text-[clamp(40px,4.8vw,64px)]">
               Quatre façons d'aider
             </h1>
@@ -85,7 +86,7 @@ export default function ContribuerPage() {
             </p>
           </div>
           <div className="mt-8 lg:mt-0 lg:border-l lg:border-rule lg:pl-12">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2.5">
               {PRINCIPES.map((ligne) => (
                 <p
                   key={ligne}

@@ -259,7 +259,7 @@ export default async function Home() {
           <div className="grid grid-cols-1 gap-10 bg-indigo p-8 sm:p-10 lg:grid-cols-[1.2fr_1fr] lg:p-16">
             <div>
               <Overline tone="gold" className="mb-6">
-                Soutenir l'association
+                Soutenir
               </Overline>
               <h2 className="mb-6 text-[clamp(26px,3.4vw,42px)] font-bold leading-[1.05] tracking-[-0.035em] text-paper">
                 Les serveurs coûtent de l'argent, le code prend du temps
