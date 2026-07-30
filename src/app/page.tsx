@@ -1,255 +1,291 @@
-import Link from "next/link";
-import SankofaBird from "@/components/SankofaBird";
-import ScrollReveal from "@/components/ScrollReveal";
+import Container from "@/components/ui/Container";
+import Overline from "@/components/ui/Overline";
+import Button from "@/components/ui/Button";
+import DataTable from "@/components/ui/DataTable";
+import Stat from "@/components/ui/Stat";
+import SectionHead from "@/components/ui/SectionHead";
+import SankofaMark from "@/components/SankofaMark";
+import { getStats } from "@/lib/stats";
 
-export default function HomePage() {
+const CHANTIERS = [
+  {
+    titre: "Transparence",
+    texte:
+      "Agréger et croiser les données publiques sur les responsables politiques : votes, patrimoine, affaires judiciaires, mandats.",
+  },
+  {
+    titre: "Open Data",
+    texte:
+      "Développer des outils libres et open source pour rendre les données politiques accessibles, structurées et réutilisables par tous.",
+  },
+  {
+    titre: "Éducation civique",
+    texte:
+      "Expliquer concrètement ce que votent les élus, comment fonctionne une mise en examen, à qui appartient quel média.",
+  },
+];
+
+const DATA_GOUV =
+  "https://www.data.gouv.fr/dataservices/poligraph-api-transparence-politique-affaires-judiciaires-et-fact-checks-rest-json";
+
+const LABEL_SOMBRE = "text-[rgba(250,247,240,0.6)]";
+
+export default async function Home() {
+  const stats = await getStats();
+  const nombre = (valeur: number) => valeur.toLocaleString("fr-FR");
+
+  const preuve = [
+    { value: nombre(stats.politiques), label: "responsables publiés" },
+    { value: nombre(stats.scrutins), label: "votes analysés" },
+    { value: nombre(stats.affaires), label: "affaires judiciaires" },
+    { value: nombre(stats.dossiers), label: "dossiers législatifs" },
+    { value: nombre(stats.factchecks), label: "fact-checks" },
+  ];
+
   return (
     <>
-      {/* Hero */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden adinkra-pattern">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo via-indigo-light to-indigo-dark opacity-95" />
-        <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 text-center">
-          <div className="animate-fade-in-up opacity-0">
-            <SankofaBird size={100} color="var(--color-gold)" animated />
+      {/* 1. Heros */}
+      <section className="border-b border-rule">
+        <Container className="grid grid-cols-1 lg:grid-cols-[1.35fr_1fr]">
+          <div className="py-12 lg:py-[88px] lg:pr-14">
+            <Overline className="mb-7">
+              Association loi 1901 · Seine-Saint-Denis
+            </Overline>
+            <h1 className="mb-7 text-[clamp(34px,9vw,46px)] font-bold leading-[0.98] tracking-[-0.045em] lg:text-[clamp(46px,5.6vw,76px)]">
+              Données politiques.
+              <br />
+              <span className="text-indigo">Transparence réelle.</span>
+            </h1>
+            <p className="mb-10 max-w-[54ch] text-[19px] leading-[1.55] text-ink-soft">
+              Nous développons des outils open source pour cartographier les
+              votes, les affaires judiciaires et les manquements déontologiques
+              des médias et responsables politiques français.
+            </p>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Button href="/projets" arrow>
+                Découvrir nos projets
+              </Button>
+              <Button href="/contribuer" variant="ghost">
+                Contribuer
+              </Button>
+            </div>
           </div>
-
-          <h1 className="mt-8 text-5xl md:text-7xl font-bold text-cream leading-tight animate-fade-in-up opacity-0 delay-200">
-            Données politiques.
-            <br />
-            <span className="text-gold">Transparence réelle.</span>
-          </h1>
-
-          <p className="mt-6 text-lg md:text-xl text-cream/70 max-w-2xl mx-auto leading-relaxed animate-fade-in-up opacity-0 delay-400">
-            Nous développons des outils open source pour cartographier les
-            votes, les affaires judiciaires et les manquements déontologiques
-            des médias et responsables politiques français.
-          </p>
-
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up opacity-0 delay-600">
-            <Link
-              href="/projets"
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-gold text-indigo-dark font-semibold rounded-lg hover:bg-gold-light transition-colors duration-300 shadow-lg shadow-gold/20"
-            >
-              Découvrir nos projets
-            </Link>
-            <Link
-              href="/contribuer"
-              className="inline-flex items-center justify-center px-8 py-3.5 border-2 border-cream/30 text-cream font-semibold rounded-lg hover:bg-cream/10 transition-colors duration-300"
-            >
-              Contribuer
-            </Link>
+          <div className="adinkra-pattern hidden items-center justify-center border-l border-rule lg:flex">
+            <SankofaMark size={200} eye="#FAF7F0" />
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* Mission - 3 piliers */}
-      <section className="py-24 bg-cream">
-        <div className="max-w-6xl mx-auto px-6">
-          <ScrollReveal>
-            <h2 className="text-3xl md:text-4xl font-bold text-indigo text-center mb-4">
-              Ce qu{"'"}on fait concrètement
-            </h2>
-            <p className="text-center text-slate/60 max-w-xl mx-auto mb-16">
-              Trois chantiers, tous open source
-            </p>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: "🔍",
-                title: "Transparence",
-                description:
-                  "Agréger et croiser les données publiques sur les responsables politiques : votes, patrimoine, affaires judiciaires, mandats.",
-              },
-              {
-                icon: "📊",
-                title: "Open Data",
-                description:
-                  "Développer des outils libres et open source pour rendre les données politiques accessibles, structurées et réutilisables par tous.",
-              },
-              {
-                icon: "🎓",
-                title: "Éducation civique",
-                description:
-                  "Expliquer concrètement ce que votent les élus, comment fonctionne une mise en examen, à qui appartient quel média.",
-              },
-            ].map((pillar, i) => (
-              <ScrollReveal key={pillar.title} className={`delay-${(i + 1) * 100}`}>
-                <div className="h-full p-8 bg-white rounded-2xl border border-indigo/5 card-hover card-accent card-accent-gold">
-                  <div className="text-4xl mb-4">{pillar.icon}</div>
-                  <h3 className="text-xl font-bold text-indigo mb-3 font-display">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-slate/70 leading-relaxed">
-                    {pillar.description}
-                  </p>
-                </div>
-              </ScrollReveal>
+      {/* 2. Bandeau de preuve */}
+      <section className="bg-indigo-deep">
+        <Container className="py-14">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+            {preuve.map((item, index) => (
+              <div
+                key={item.label}
+                className={`px-5 py-6 lg:border-l lg:border-rule-dark lg:first:border-l-0 lg:first:pl-0 ${
+                  index === 4 ? "col-span-2 lg:col-span-1" : ""
+                }`}
+              >
+                <Stat
+                  value={item.value}
+                  label={item.label}
+                  tone="paper"
+                  labelClassName={LABEL_SOMBRE}
+                />
+              </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Projet phare - Poligraph */}
-      <section className="py-24 bg-indigo relative noise-overlay">
-        <div className="relative z-10 max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <ScrollReveal direction="left">
-              <p className="text-gold font-semibold text-sm tracking-widest uppercase mb-3">
-                Projet phare
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-cream mb-6">
-                Poligraph
-              </h2>
-              <p className="text-cream/70 leading-relaxed mb-6">
-                La plateforme de référence pour comprendre la politique
-                française par les données. Poligraph agrège 9 sources
-                officielles et rend ces données accessibles aux citoyens,
-                journalistes et chercheurs.
-              </p>
-              <div className="grid grid-cols-2 gap-4 mb-8">
-                {[
-                  { value: "1 068", label: "politiques suivis" },
-                  { value: "10 145", label: "votes analysés" },
-                  { value: "450+", label: "affaires judiciaires" },
-                  { value: "1 749", label: "dossiers législatifs" },
-                ].map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="p-4 bg-cream/5 rounded-lg border border-cream/10"
-                  >
-                    <div className="text-2xl font-bold text-gold font-display">
-                      {stat.value}
-                    </div>
-                    <div className="text-xs text-cream/50 mt-1">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <a
-                href="https://poligraph.fr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gold text-indigo-dark font-semibold rounded-lg hover:bg-gold-light transition-colors duration-300"
-              >
-                Visiter poligraph.fr
-                <span aria-hidden="true">&rarr;</span>
-              </a>
-            </ScrollReveal>
-
-            <ScrollReveal direction="right">
-              <div className="relative">
-                <div className="aspect-video bg-indigo-light rounded-2xl border border-cream/10 overflow-hidden">
-                  <img
-                    src="/poligraph-og.png"
-                    alt="Poligraph - Observatoire citoyen de la vie politique"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gold/10 rounded-full blur-2xl" />
-                <div className="absolute -top-4 -left-4 w-16 h-16 bg-terra/10 rounded-full blur-xl" />
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Projet - CNuisible */}
-      <section className="py-24 bg-cream">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <ScrollReveal direction="left">
-              <div className="relative">
-                <div className="aspect-video bg-white rounded-2xl border border-indigo/10 overflow-hidden flex items-center justify-center p-12">
-                  <div className="text-center">
-                    <p className="text-6xl md:text-7xl font-bold text-indigo font-display">
-                      CNuisible
-                    </p>
-                    <p className="mt-3 text-slate/50 text-sm">
-                      Nuisible à la démocratie
-                    </p>
-                  </div>
-                </div>
-                <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-terra/10 rounded-full blur-2xl" />
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal direction="right">
-              <p className="text-terra font-semibold text-sm tracking-widest uppercase mb-3">
-                Nouveau projet
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-indigo mb-6">
-                CNuisible
-              </h2>
-              <p className="text-slate/70 leading-relaxed mb-6">
-                Le dossier factuel contre CNews. Chaque sanction de l{"'"}Arcom,
-                chaque avis du CDJM, chaque manquement à la Charte de Munich,
-                documenté et sourcé. Un outil de contrôle citoyen de la
-                déontologie journalistique.
-              </p>
-              <div className="grid grid-cols-3 gap-4 mb-8">
-                {[
-                  { value: "32", label: "infractions documentées" },
-                  { value: "6", label: "sanctions Arcom" },
-                  { value: "9", label: "témoignages publiés" },
-                ].map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="p-4 bg-indigo/5 rounded-lg"
-                  >
-                    <div className="text-2xl font-bold text-terra font-display">
-                      {stat.value}
-                    </div>
-                    <div className="text-xs text-slate/50 mt-1">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <a
-                href="https://cnuisible.fr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-terra text-white font-semibold rounded-lg hover:bg-terra-light transition-colors duration-300"
-              >
-                Visiter cnuisible.fr
-                <span aria-hidden="true">&rarr;</span>
-              </a>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Soutenir */}
-      <section className="py-24 bg-cream-dark">
-        <ScrollReveal className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-indigo mb-6">
-            Les serveurs coûtent de l{"'"}argent, le code prend du temps
-          </h2>
-          <p className="text-slate/70 leading-relaxed mb-10 max-w-xl mx-auto">
-            Sankofa n{"'"}a pas de publicité, pas de financement privé. Votre
-            don couvre directement les coûts d{"'"}hébergement et de
-            développement.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="mt-10 flex flex-col gap-4 border-t border-rule-dark pt-8 md:flex-row md:items-baseline md:justify-between">
+            <p className="max-w-[70ch] text-[15px] leading-[1.6] text-[rgba(250,247,240,0.7)]">
+              <span className="font-semibold text-paper">
+                {stats.sources} sources de données
+              </span>{" "}
+              : Assemblée nationale, Sénat, Gouvernement, HATVP, Parlement
+              européen, Wikidata, NosDéputés, Datan, OpenSanctions, Google Fact
+              Check, presse.
+            </p>
             <a
-              href="https://tipeee.com/poligraph"
+              href={DATA_GOUV}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-terra text-white font-semibold rounded-lg hover:bg-terra-light transition-colors duration-300 shadow-lg shadow-terra/20"
+              className="shrink-0 font-mono text-[12px] tracking-[0.06em] text-gold transition-colors duration-150 hover:text-gold-light"
             >
-              Faire un don sur Tipeee
+              référencé sur data.gouv.fr &rarr;
             </a>
-            <Link
-              href="/contribuer"
-              className="inline-flex items-center justify-center px-8 py-3.5 border-2 border-indigo/20 text-indigo font-semibold rounded-lg hover:bg-indigo/5 transition-colors duration-300"
-            >
-              Autres manières de contribuer
-            </Link>
           </div>
-        </ScrollReveal>
+        </Container>
+      </section>
+
+      {/* 3. Ce qu'on fait concretement */}
+      <section className="border-b border-rule">
+        <Container className="py-20">
+          <SectionHead
+            title="Ce qu'on fait concrètement"
+            note="trois chantiers, tous open source"
+            className="mb-14"
+          />
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
+            {CHANTIERS.map((chantier, index) => (
+              <div key={chantier.titre} className="border-t-2 border-ink pt-6">
+                <p className="mb-4 font-mono text-[11px] tracking-[0.12em] text-ink-mute">
+                  {String(index + 1).padStart(2, "0")}
+                </p>
+                <h3 className="mb-3 text-[23px] font-semibold leading-[1.2] tracking-[-0.025em] text-ink">
+                  {chantier.titre}
+                </h3>
+                <p className="text-[16px] leading-[1.6] text-ink-soft">
+                  {chantier.texte}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* 4. Poligraph, projet principal */}
+      <section className="border-b border-rule bg-surface">
+        <Container className="grid grid-cols-1 py-20 lg:grid-cols-[1.15fr_1fr] lg:gap-14">
+          <div>
+            <Overline className="mb-6">
+              Projet principal · en production
+            </Overline>
+            <h2 className="mb-6 text-[clamp(32px,4vw,54px)] font-bold leading-[1.05] tracking-[-0.04em] text-ink">
+              Poligraph
+            </h2>
+            <p className="mb-9 max-w-[58ch] text-[19px] leading-[1.55] text-ink-soft">
+              La plateforme de référence pour comprendre la politique française
+              par les données. Poligraph agrège {stats.sources} sources de
+              données publiques et rend ces données accessibles aux citoyens,
+              journalistes et chercheurs.
+            </p>
+            <DataTable
+              className="mb-9"
+              rows={[
+                {
+                  label: "Responsables publiés",
+                  value: nombre(stats.politiques),
+                },
+                { label: "Scrutins analysés", value: nombre(stats.scrutins) },
+                { label: "Affaires judiciaires", value: nombre(stats.affaires) },
+                { label: "Outils MCP", value: String(stats.outilsMcp) },
+              ]}
+            />
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Button href="https://poligraph.fr" external arrow>
+                Visiter poligraph.fr
+              </Button>
+              <Button
+                href="https://github.com/ironlam/poligraph-mcp"
+                variant="ghost"
+                external
+              >
+                Serveur MCP
+              </Button>
+            </div>
+          </div>
+          <div className="mt-10 lg:mt-0 lg:border-l lg:border-rule lg:pl-14">
+            <img
+              src="/poligraph-og.png"
+              alt="Interface publique de Poligraph"
+              className="w-full border border-rule"
+            />
+            <p className="mt-3 font-mono text-[11px] tracking-[0.08em] text-ink-mute">
+              poligraph.fr, interface publique
+            </p>
+          </div>
+        </Container>
+      </section>
+
+      {/* 5. CNuisible, second projet */}
+      <section className="border-b border-rule">
+        <Container className="grid grid-cols-1 py-20 lg:grid-cols-[1fr_1.4fr] lg:gap-14">
+          <div>
+            <Overline tone="terra" className="mb-6">
+              Second projet · en production
+            </Overline>
+            <h2 className="mb-4 text-[clamp(28px,4.5vw,34px)] font-bold leading-[1.05] tracking-[-0.035em] text-ink">
+              CNuisible
+            </h2>
+            <a
+              href="https://cnuisible.fr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-[13px] tracking-[0.06em] text-terra-text underline transition-colors duration-150 hover:text-ink"
+            >
+              cnuisible.fr &rarr;
+            </a>
+          </div>
+          <div className="mt-8 lg:mt-0">
+            <p className="mb-5 text-[17px] leading-[1.6] text-ink-soft">
+              Un outil de contrôle citoyen de la déontologie journalistique :
+              chaque sanction de l'Arcom contre CNews, chaque avis du CDJM,
+              chaque manquement à la Charte de Munich, documenté et sourcé.
+            </p>
+            <p className="mb-9 text-[17px] leading-[1.6] text-ink-soft">
+              Le projet ne juge pas les opinions : il mesure l'écart entre une
+              pratique éditoriale et les standards professionnels. Chaque fait
+              est sourcé par une URL vérifiable, relu avant publication, et le
+              droit de réponse est ouvert.
+            </p>
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+              <Stat
+                value={String(stats.infractions)}
+                label="cas vérifiés"
+                tone="terra"
+                size="medium"
+              />
+              <Stat
+                value={String(stats.avisCdjm)}
+                label="avis CDJM"
+                tone="terra"
+                size="medium"
+              />
+              <Stat
+                value={String(stats.devoirsMunich)}
+                label="devoirs de Munich"
+                tone="terra"
+                size="medium"
+              />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* 6. Soutenir, seul bloc plein de la page */}
+      <section className="py-20">
+        <Container>
+          <div className="grid grid-cols-1 gap-10 bg-indigo p-8 sm:p-10 lg:grid-cols-[1.2fr_1fr] lg:p-16">
+            <div>
+              <Overline tone="gold" className="mb-6">
+                Soutenir l'association
+              </Overline>
+              <h2 className="mb-6 text-[clamp(26px,3.4vw,42px)] font-bold leading-[1.05] tracking-[-0.035em] text-paper">
+                Les serveurs coûtent de l'argent, le code prend du temps
+              </h2>
+              <p className="max-w-[52ch] text-[17px] leading-[1.6] text-[rgba(250,247,240,0.75)]">
+                Sankofa n'a pas de publicité, pas de financement privé. Votre
+                don couvre directement les coûts d'hébergement et de
+                développement.
+              </p>
+            </div>
+            <div className="flex flex-col justify-center gap-3">
+              <Button
+                href="https://tipeee.com/poligraph"
+                variant="gold"
+                external
+                arrow
+                block
+              >
+                Faire un don sur Tipeee
+              </Button>
+              <Button href="/contribuer" variant="ghostLight" arrow block>
+                Autres manières de contribuer
+              </Button>
+            </div>
+          </div>
+        </Container>
       </section>
     </>
   );
