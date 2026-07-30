@@ -272,13 +272,13 @@ export default async function Home() {
             </div>
             <div className="flex flex-col justify-center gap-3">
               <Button
-                href="https://tipeee.com/poligraph"
+                href="https://www.helloasso.com/associations/association-sankofa"
                 variant="gold"
                 external
                 arrow
                 block
               >
-                Faire un don sur Tipeee
+                Faire un don sur HelloAsso
               </Button>
               <Button href="/contribuer" variant="ghostLight" arrow block>
                 Autres manières de contribuer

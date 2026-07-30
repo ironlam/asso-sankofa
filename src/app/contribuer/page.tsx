@@ -157,13 +157,13 @@ export default function ContribuerPage() {
             </div>
             <div className="flex flex-col justify-center gap-4">
               <Button
-                href="https://tipeee.com/poligraph"
+                href="https://www.helloasso.com/associations/association-sankofa"
                 variant="gold"
                 external
                 arrow
                 block
               >
-                Soutenir sur Tipeee
+                Soutenir sur HelloAsso
               </Button>
               <p className="text-center font-mono text-[11px] tracking-[0.08em] text-[rgba(250,247,240,0.5)]">
                 Association loi 1901 · RNA W931031256

@@ -20,7 +20,10 @@ const CONTACT = [
     href: "mailto:contact@asso-sankofa.org",
     label: "contact@asso-sankofa.org",
   },
-  { href: "https://tipeee.com/poligraph", label: "Tipeee" },
+  {
+    href: "https://www.helloasso.com/associations/association-sankofa",
+    label: "HelloAsso",
+  },
 ];
 
 const COLUMN_TITLE =

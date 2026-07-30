@@ -13,7 +13,7 @@ const NAV_ITEMS = [
   { href: "/a-propos", label: "À propos" },
 ];
 
-const TIPEEE = "https://tipeee.com/poligraph";
+const SOUTIEN = "https://www.helloasso.com/associations/association-sankofa";
 
 export default function Header() {
   const pathname = usePathname();
@@ -55,7 +55,7 @@ export default function Header() {
             </Link>
           ))}
           <a
-            href={TIPEEE}
+            href={SOUTIEN}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-indigo px-4 py-2.5 font-mono text-[12px] font-medium tracking-[0.06em] uppercase text-paper transition-colors duration-150 hover:bg-ink"
@@ -99,7 +99,7 @@ export default function Header() {
               </Link>
             ))}
             <a
-              href={TIPEEE}
+              href={SOUTIEN}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 flex min-h-12 items-center justify-center bg-indigo px-4 font-mono text-[12px] font-medium tracking-[0.06em] uppercase text-paper"
