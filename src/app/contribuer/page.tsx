@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import ScrollReveal from "@/components/ScrollReveal";
+import Container from "@/components/ui/Container";
+import Overline from "@/components/ui/Overline";
+import Button from "@/components/ui/Button";
+import RuledGrid from "@/components/ui/RuledGrid";
+import SquareList from "@/components/ui/SquareList";
 
 export const metadata: Metadata = {
   title: "Contribuer",
@@ -7,169 +11,165 @@ export const metadata: Metadata = {
     "Comment contribuer aux projets de l'Association Sankofa : développement, modération, dons.",
 };
 
+const PRINCIPES = [
+  "Tout le code est ouvert.",
+  "Toutes les données sont sourcées.",
+  "Aucune contribution n'est trop petite.",
+];
+
+const VOIES = [
+  {
+    titre: "Développement",
+    texte:
+      "Le code de Poligraph est open source. Contribuez au développement de nouvelles fonctionnalités, corrigez des bugs, ou améliorez les pipelines de données.",
+    items: [
+      "Next.js, React, TypeScript",
+      "Prisma, PostgreSQL",
+      "Pipelines de sync (Inngest)",
+      "Serveur MCP",
+    ],
+    lien: {
+      href: "https://github.com/ironlam",
+      label: "Voir sur GitHub",
+      external: true,
+    },
+  },
+  {
+    titre: "Modération éditoriale",
+    texte:
+      "Aidez-nous à vérifier et enrichir les données : fiches politiques, affaires judiciaires, fact-checks. La qualité des données est notre priorité.",
+    items: [
+      "Vérification des sources",
+      "Enrichissement des fiches",
+      "Relecture des affaires judiciaires",
+      "Classification des votes",
+    ],
+    lien: {
+      href: "mailto:contact@asso-sankofa.org",
+      label: "Nous contacter",
+      external: false,
+    },
+  },
+  {
+    titre: "Données et recherche",
+    texte:
+      "Chercheurs, data scientists, journalistes : utilisez nos données pour vos travaux. Signalez-nous de nouvelles sources ou proposez des analyses.",
+    items: [
+      "API publique disponible",
+      "Serveur MCP pour requêtes IA",
+      "Données référencées sur data.gouv.fr",
+      "Exports et analyses",
+    ],
+    lien: {
+      href: "https://poligraph.fr",
+      label: "Explorer les données",
+      external: true,
+    },
+  },
+];
+
 export default function ContribuerPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="py-24 bg-cream">
-        <div className="max-w-6xl mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-indigo mb-4">
-            Contribuer
-          </h1>
-          <p className="text-lg text-slate/60 max-w-2xl">
-            Code, données, vérification des sources ou financement : voici
-            comment aider concrètement.
-          </p>
-        </div>
+      {/* 1. En-tete */}
+      <section className="border-b border-rule">
+        <Container className="grid grid-cols-1 py-16 lg:grid-cols-[1.3fr_1fr] lg:gap-12">
+          <div>
+            <Overline className="mb-6">Nous aider</Overline>
+            <h1 className="mb-6 text-[clamp(34px,9vw,46px)] font-bold leading-[1.0] tracking-[-0.04em] lg:text-[clamp(40px,4.8vw,64px)]">
+              Quatre façons d'aider
+            </h1>
+            <p className="max-w-[58ch] text-[19px] leading-[1.55] text-ink-soft">
+              Code, données, vérification des sources ou financement : voici
+              comment aider concrètement.
+            </p>
+          </div>
+          <div className="mt-8 lg:mt-0 lg:border-l lg:border-rule lg:pl-12">
+            <div className="flex flex-col gap-4">
+              {PRINCIPES.map((ligne) => (
+                <p
+                  key={ligne}
+                  className="font-mono text-[13px] leading-[1.6] text-ink-soft"
+                >
+                  {ligne}
+                </p>
+              ))}
+            </div>
+          </div>
+        </Container>
       </section>
 
-      {/* Modes de contribution */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Dev */}
-            <ScrollReveal>
-              <div className="h-full p-8 bg-cream rounded-2xl border border-indigo/5 card-hover card-accent card-accent-indigo">
-                <div className="text-3xl mb-4">{"</>"}</div>
-                <h3 className="text-xl font-bold text-indigo mb-3 font-display">
-                  Développement
-                </h3>
-                <p className="text-slate/70 leading-relaxed mb-6">
-                  Le code de Poligraph est open source. Contribuez au
-                  développement de nouvelles fonctionnalités, corrigez des bugs,
-                  ou améliorez les pipelines de données.
+      {/* 2. Les trois voies */}
+      <section className="border-b border-rule">
+        <Container className="py-16">
+          <RuledGrid cols={3}>
+            {VOIES.map((voie, index) => (
+              <div
+                key={voie.titre}
+                className="flex flex-col bg-surface px-8 py-10"
+              >
+                <p className="mb-5 font-mono text-[11px] tracking-[0.12em] text-ink-mute">
+                  {String(index + 1).padStart(2, "0")}
                 </p>
-                <ul className="space-y-2 mb-6">
-                  {[
-                    "Next.js, React, TypeScript",
-                    "Prisma, PostgreSQL",
-                    "Pipelines de sync (Inngest)",
-                    "Serveur MCP",
-                  ].map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-center gap-2 text-sm text-slate/60"
-                    >
-                      <span className="text-gold">&#9670;</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <h2 className="mb-4 text-[25px] font-semibold leading-[1.2] tracking-[-0.025em] text-ink">
+                  {voie.titre}
+                </h2>
+                <p className="mb-6 text-[16px] leading-[1.6] text-ink-soft">
+                  {voie.texte}
+                </p>
+                <SquareList items={voie.items} mono className="mb-8" />
                 <a
-                  href="https://github.com/ironlam"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-indigo font-semibold hover:text-gold transition-colors"
+                  href={voie.lien.href}
+                  {...(voie.lien.external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                  className="mt-auto inline-flex min-h-12 items-center text-[15px] font-semibold text-indigo underline transition-colors duration-150 hover:text-gold-text"
                 >
-                  Voir sur GitHub <span aria-hidden="true">&rarr;</span>
+                  {voie.lien.label}&nbsp;&rarr;
                 </a>
               </div>
-            </ScrollReveal>
+            ))}
+          </RuledGrid>
+        </Container>
+      </section>
 
-            {/* Modération */}
-            <ScrollReveal>
-              <div className="h-full p-8 bg-cream rounded-2xl border border-indigo/5 card-hover card-accent card-accent-gold">
-                <div className="text-3xl mb-4">&#9998;</div>
-                <h3 className="text-xl font-bold text-indigo mb-3 font-display">
-                  Modération éditoriale
-                </h3>
-                <p className="text-slate/70 leading-relaxed mb-6">
-                  Aidez-nous à vérifier et enrichir les données : fiches
-                  politiques, affaires judiciaires, fact-checks. La qualité des
-                  données est notre priorité.
-                </p>
-                <ul className="space-y-2 mb-6">
-                  {[
-                    "Vérification des sources",
-                    "Enrichissement des fiches",
-                    "Relecture des affaires judiciaires",
-                    "Classification des votes",
-                  ].map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-center gap-2 text-sm text-slate/60"
-                    >
-                      <span className="text-gold">&#9670;</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href="mailto:contact@asso-sankofa.org"
-                  className="inline-flex items-center gap-2 text-indigo font-semibold hover:text-gold transition-colors"
-                >
-                  Nous contacter <span aria-hidden="true">&rarr;</span>
-                </a>
-              </div>
-            </ScrollReveal>
-
-            {/* Données */}
-            <ScrollReveal>
-              <div className="h-full p-8 bg-cream rounded-2xl border border-indigo/5 card-hover card-accent card-accent-terra">
-                <div className="text-3xl mb-4">&#128202;</div>
-                <h3 className="text-xl font-bold text-indigo mb-3 font-display">
-                  Données et recherche
-                </h3>
-                <p className="text-slate/70 leading-relaxed mb-6">
-                  Chercheurs, data scientists, journalistes : utilisez nos
-                  données pour vos travaux. Signalez-nous de nouvelles sources ou
-                  proposez des analyses.
-                </p>
-                <ul className="space-y-2 mb-6">
-                  {[
-                    "API publique disponible",
-                    "Serveur MCP pour requêtes IA",
-                    "Données référencées sur data.gouv.fr",
-                    "Exports et analyses",
-                  ].map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-center gap-2 text-sm text-slate/60"
-                    >
-                      <span className="text-gold">&#9670;</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href="https://poligraph.fr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-indigo font-semibold hover:text-gold transition-colors"
-                >
-                  Explorer les données <span aria-hidden="true">&rarr;</span>
-                </a>
-              </div>
-            </ScrollReveal>
-
-            {/* Financement */}
-            <ScrollReveal>
-              <div className="h-full p-8 bg-gold/5 rounded-2xl border border-gold/20 card-hover card-accent card-accent-gold">
-                <div className="text-3xl mb-4">&#10084;</div>
-                <h3 className="text-xl font-bold text-indigo mb-3 font-display">
-                  Soutien financier
-                </h3>
-                <p className="text-slate/70 leading-relaxed mb-6">
-                  Sankofa fonctionne sans publicité et sans financement privé.
-                  Chaque don nous aide à maintenir les serveurs, développer de
-                  nouvelles fonctionnalités et rester indépendants.
-                </p>
-                <p className="text-slate/60 text-sm leading-relaxed mb-6">
-                  Même un petit montant contribue à couvrir les frais de
-                  serveurs, de noms de domaine et de développement.
-                </p>
-                <a
-                  href="https://tipeee.com/poligraph"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-terra text-white font-semibold rounded-lg hover:bg-terra-light transition-colors duration-300"
-                >
-                  Soutenir sur Tipeee
-                </a>
-              </div>
-            </ScrollReveal>
+      {/* 3. Soutien financier */}
+      <section className="py-16">
+        <Container>
+          <div className="grid grid-cols-1 gap-10 bg-indigo p-8 sm:p-10 lg:grid-cols-[1.25fr_1fr] lg:p-14">
+            <div>
+              <p className="mb-5 font-mono text-[11px] tracking-[0.12em] text-[rgba(250,247,240,0.55)]">
+                04
+              </p>
+              <h2 className="mb-5 text-[clamp(26px,3.2vw,40px)] font-bold leading-[1.05] tracking-[-0.035em] text-paper">
+                Soutien financier
+              </h2>
+              <p className="mb-6 max-w-[52ch] text-[17px] leading-[1.6] text-[rgba(250,247,240,0.75)]">
+                Sankofa fonctionne sans publicité et sans financement privé.
+                Chaque don nous aide à maintenir les serveurs, développer de
+                nouvelles fonctionnalités et rester indépendants.
+              </p>
+              <p className="font-mono text-[13px] leading-[1.6] text-gold">
+                Même un petit montant couvre les frais de serveurs, de noms de
+                domaine et de développement.
+              </p>
+            </div>
+            <div className="flex flex-col justify-center gap-4">
+              <Button
+                href="https://tipeee.com/poligraph"
+                variant="gold"
+                external
+                arrow
+                block
+              >
+                Soutenir sur Tipeee
+              </Button>
+              <p className="text-center font-mono text-[11px] tracking-[0.08em] text-[rgba(250,247,240,0.5)]">
+                Association loi 1901 · RNA W931031256
+              </p>
+            </div>
           </div>
-        </div>
+        </Container>
       </section>
     </>
   );
