@@ -34,7 +34,13 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-[30px] md:flex">
+        {/*
+          Nav visible a partir de 1024px et non 768px : a 768 le conteneur ne
+          fait que 712px de contenu, et surtout une tablette est tactile, donc
+          des liens de 20px violent la cible minimale de 48px. En dessous de
+          1024px on passe par le menu deroulant, dont les entrees font 48px.
+        */}
+        <nav className="hidden items-center gap-[30px] lg:flex">
           {NAV_ITEMS.map(({ href, label }) => (
             <Link
               key={href}
@@ -58,9 +64,10 @@ export default function Header() {
           </a>
         </nav>
 
+        {/* size-12 vaut 48px : cible tactile minimale. */}
         <button
           type="button"
-          className="flex flex-col gap-1.5 p-2 md:hidden"
+          className="-mr-2 flex size-12 flex-col items-center justify-center gap-1.5 lg:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Menu"
           aria-expanded={menuOpen}
@@ -75,7 +82,7 @@ export default function Header() {
       {menuOpen && (
         <nav
           id="menu-mobile"
-          className="border-b border-rule bg-paper md:hidden"
+          className="border-b border-rule bg-paper lg:hidden"
         >
           <Container className="flex flex-col gap-1 py-4">
             {NAV_ITEMS.map(({ href, label }) => (
