@@ -26,14 +26,53 @@ test("mappe la reponse de l'API vers les noms du site", async () => {
   assert.equal(stats.factchecks, 829);
 });
 
-test("expose toujours les valeurs statiques", async () => {
+/*
+  Les cles attendues sont listees en dur, et non derivees de STATIC.
+  Comparer stats.x a STATIC.x passe meme si les deux valent undefined :
+  un tel test ne detecte pas une cle oubliee. C'est arrive une fois, et
+  seule la page rendue l'a montre.
+*/
+const CLES_ATTENDUES = [
+  "politiques",
+  "scrutins",
+  "affaires",
+  "factchecks",
+  "dossiers",
+  "outilsMcp",
+  "sources",
+  "infractions",
+  "avisCdjm",
+  "rappelsArcom",
+  "devoirsMunich",
+] as const;
+
+test("expose toutes les cles attendues, et aucune n'est vide", async () => {
   const stats = await getStats(async () => jsonResponse(VALID));
-  assert.equal(stats.dossiers, STATIC.dossiers);
-  assert.equal(stats.outilsMcp, STATIC.outilsMcp);
-  assert.equal(stats.sources, STATIC.sources);
-  assert.equal(stats.infractions, STATIC.infractions);
-  assert.equal(stats.avisCdjm, STATIC.avisCdjm);
-  assert.equal(stats.devoirsMunich, STATIC.devoirsMunich);
+  for (const cle of CLES_ATTENDUES) {
+    const valeur = (stats as Record<string, unknown>)[cle];
+    assert.equal(
+      typeof valeur,
+      "number",
+      `${cle} devrait etre un nombre, recu ${String(valeur)}`,
+    );
+    assert.ok((valeur as number) > 0, `${cle} devrait etre superieur a zero`);
+  }
+});
+
+test("les valeurs statiques traversent le mapping", async () => {
+  const stats = await getStats(async () => jsonResponse(VALID));
+  assert.deepEqual(
+    {
+      dossiers: stats.dossiers,
+      outilsMcp: stats.outilsMcp,
+      sources: stats.sources,
+      infractions: stats.infractions,
+      avisCdjm: stats.avisCdjm,
+      rappelsArcom: stats.rappelsArcom,
+      devoirsMunich: stats.devoirsMunich,
+    },
+    { ...STATIC },
+  );
 });
 
 test("replie sur les valeurs commitees si le reseau echoue", async () => {

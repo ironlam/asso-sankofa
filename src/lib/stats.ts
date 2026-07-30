@@ -28,8 +28,14 @@ const FALLBACK: ApiCounts = {
   sources         poligraph.fr/sources en liste 11, dont 5 institutions
   infractions     cnuisible.fr, 37 cas verifies
   avisCdjm        seed 20260412_009_seed_cdjm_avis.sql
+  rappelsArcom    cnuisible.fr, releve externe depuis 2017, source
+                  franceinfo / Complement d'enquete du 27 nov. 2025
   devoirsMunich   Charte de Munich, fait statique
   Tous verifies le 2026-07-30.
+
+  Deux chiffres de l'ancien site ont ete retires faute de source verifiable :
+  « 6 sanctions Arcom » et « 9 temoignages publies ». rappelsArcom les
+  remplace.
 */
 export const STATIC = {
   dossiers: 2130,
@@ -37,6 +43,7 @@ export const STATIC = {
   sources: 11,
   infractions: 37,
   avisCdjm: 13,
+  rappelsArcom: 49,
   devoirsMunich: 10,
 } as const;
 
