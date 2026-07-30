@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import SankofaBird from "./SankofaBird";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import SankofaMark from "./SankofaMark";
+import Container from "./ui/Container";
 
 const NAV_ITEMS = [
   { href: "/", label: "Accueil" },
@@ -12,72 +13,100 @@ const NAV_ITEMS = [
   { href: "/a-propos", label: "À propos" },
 ];
 
+const TIPEEE = "https://tipeee.com/poligraph";
+
 export default function Header() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Le menu mobile ne doit pas rester ouvert apres une navigation.
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-cream/80 backdrop-blur-md border-b border-indigo/10">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 group">
-          <SankofaBird size={36} color="var(--color-indigo)" animated />
-          <span className="font-display text-xl font-bold text-indigo tracking-tight">
+    <header className="sticky top-0 z-50 border-b border-rule bg-paper">
+      <Container className="flex h-[68px] items-center justify-between">
+        <Link href="/" className="flex items-center gap-3">
+          <SankofaMark size={32} eye="#FAF7F0" />
+          <span className="text-[21px] font-bold tracking-[-0.035em] text-indigo">
             Sankofa
           </span>
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        {/*
+          Nav visible a partir de 1024px et non 768px : a 768 le conteneur ne
+          fait que 712px de contenu, et surtout une tablette est tactile, donc
+          des liens de 20px violent la cible minimale de 48px. En dessous de
+          1024px on passe par le menu deroulant, dont les entrees font 48px.
+        */}
+        <nav className="hidden items-center gap-[30px] lg:flex">
           {NAV_ITEMS.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
-              className={`text-sm font-medium tracking-wide transition-colors duration-300 ${
+              className={
                 pathname === href
-                  ? "text-indigo border-b-2 border-gold pb-0.5"
-                  : "text-slate/70 hover:text-indigo"
-              }`}
+                  ? "border-b-2 border-gold pb-[3px] text-sm font-semibold text-ink"
+                  : "text-sm font-medium text-ink-soft transition-colors duration-150 hover:text-ink"
+              }
             >
               {label}
             </Link>
           ))}
+          <a
+            href={TIPEEE}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-indigo px-4 py-2.5 font-mono text-[12px] font-medium tracking-[0.06em] uppercase text-paper transition-colors duration-150 hover:bg-ink"
+          >
+            Soutenir
+          </a>
         </nav>
 
-        {/* Mobile hamburger */}
+        {/* size-12 vaut 48px : cible tactile minimale. */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          type="button"
+          className="-mr-2 flex size-12 flex-col items-center justify-center gap-1.5 lg:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Menu"
+          aria-expanded={menuOpen}
+          aria-controls="menu-mobile"
         >
-          <span
-            className={`w-6 h-0.5 bg-indigo transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
-          />
-          <span
-            className={`w-6 h-0.5 bg-indigo transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
-          />
-          <span
-            className={`w-6 h-0.5 bg-indigo transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
-          />
+          <span className="h-0.5 w-6 bg-indigo" />
+          <span className="h-0.5 w-6 bg-indigo" />
+          <span className="h-0.5 w-6 bg-indigo" />
         </button>
-      </div>
+      </Container>
 
-      {/* Mobile menu */}
       {menuOpen && (
-        <nav className="md:hidden bg-cream border-b border-indigo/10 animate-fade-in">
-          <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-4">
+        <nav
+          id="menu-mobile"
+          className="border-b border-rule bg-paper lg:hidden"
+        >
+          <Container className="flex flex-col gap-1 py-4">
             {NAV_ITEMS.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
-                onClick={() => setMenuOpen(false)}
-                className={`text-base font-medium ${
-                  pathname === href ? "text-indigo" : "text-slate/70"
-                }`}
+                className={
+                  pathname === href
+                    ? "flex min-h-12 items-center text-base font-semibold text-ink"
+                    : "flex min-h-12 items-center text-base font-medium text-ink-soft"
+                }
               >
                 {label}
               </Link>
             ))}
-          </div>
+            <a
+              href={TIPEEE}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 flex min-h-12 items-center justify-center bg-indigo px-4 font-mono text-[12px] font-medium tracking-[0.06em] uppercase text-paper"
+            >
+              Soutenir
+            </a>
+          </Container>
         </nav>
       )}
     </header>
