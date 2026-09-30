@@ -11,17 +11,17 @@ const CHANTIERS = [
   {
     titre: "Transparence",
     texte:
-      "Agréger et croiser les données publiques sur les responsables politiques : votes, patrimoine, affaires judiciaires, mandats.",
+      "Agréger et croiser les données publiques sur les responsables politiques : votes, patrimoine, affaires judiciaires, mandats.",
   },
   {
     titre: "Open Data",
     texte:
-      "Développer des outils libres et open source pour rendre les données politiques accessibles, structurées et réutilisables par tous.",
+      "Développer des outils open source et publier les données politiques dans des formats que chacun peut réutiliser.",
   },
   {
     titre: "Éducation civique",
     texte:
-      "Expliquer concrètement ce que votent les élus, comment fonctionne une mise en examen, à qui appartient quel média.",
+      "Expliquer ce que votent les élus, comment fonctionne une mise en examen, à qui appartient tel média.",
   },
 ];
 
@@ -101,7 +101,7 @@ export default async function Home() {
             <p className="max-w-[70ch] text-[15px] leading-[1.6] text-[rgba(250,247,240,0.7)]">
               <span className="font-semibold text-paper">
                 {stats.sources} sources de données
-              </span>{" "}
+              </span>{"\u00a0"}
               : Assemblée nationale, Sénat, Gouvernement, HATVP, Parlement
               européen, Wikidata, NosDéputés, Datan, OpenSanctions, Google Fact
               Check, presse.
@@ -219,15 +219,16 @@ export default async function Home() {
           </div>
           <div className="mt-8 lg:mt-0">
             <p className="mb-5 text-[17px] leading-[1.6] text-ink-soft">
-              Un outil de contrôle citoyen de la déontologie journalistique :
-              chaque sanction de l'Arcom contre CNews, chaque avis du CDJM,
-              chaque manquement à la Charte de Munich, documenté et sourcé.
+              CNuisible est un outil de contrôle citoyen de la déontologie
+              journalistique. Il documente et source chaque sanction de l'Arcom
+              contre CNews, chaque avis du CDJM et chaque manquement à la
+              Charte de Munich.
             </p>
             <p className="mb-9 text-[17px] leading-[1.6] text-ink-soft">
-              Le projet ne juge pas les opinions : il mesure l'écart entre une
+              Le projet ne juge pas les opinions : il mesure l'écart entre une
               pratique éditoriale et les standards professionnels. Chaque fait
-              est sourcé par une URL vérifiable, relu avant publication, et le
-              droit de réponse est ouvert.
+              renvoie à une URL vérifiable et passe en relecture avant
+              publication. Le droit de réponse est ouvert.
             </p>
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
               <Stat

@@ -68,23 +68,23 @@ export default function AProposPage() {
           <div className="py-16 lg:pl-14">
             <Overline className="mb-6">Symbole adinkra, Ghana</Overline>
             <h2 className="mb-7 text-[clamp(26px,4vw,36px)] font-bold leading-[1.05] tracking-[-0.035em] text-ink">
-              Qu'est-ce que Sankofa ?
+              Qu'est-ce que Sankofa ?
             </h2>
             <p className="mb-6 max-w-[58ch] text-[19px] leading-[1.55] text-ink-soft">
               <strong className="font-semibold text-ink">Sankofa</strong> est un
               symbole adinkra originaire du Ghana. Il représente un oiseau qui
               tourne la tête vers l'arrière pour saisir un œuf posé sur son dos.
-              Sa signification :{" "}
+              Sa signification :{" "}
               <em className="text-indigo">
-                « retourne chercher ce que tu as oublié »
+                « retourne chercher ce que tu as oublié »
               </em>
               .
             </p>
             <p className="max-w-[58ch] text-[17px] leading-[1.6] text-ink-soft">
-              Appliqué à ce qu'on fait : les données publiques existent (votes,
-              affaires, sanctions, patrimoine), mais elles sont dispersées,
-              illisibles, rarement croisées. Notre travail, c'est d'aller les
-              chercher et de les rendre utilisables.
+              Appliqué à ce qu'on fait : les données publiques existent (votes,
+              affaires, sanctions, patrimoine), mais elles sont dispersées et
+              rarement croisées. Notre travail, c'est d'aller les chercher et
+              de les rendre utilisables.
             </p>
           </div>
         </Container>
@@ -166,9 +166,9 @@ export default function AProposPage() {
               <p className="text-[15px] leading-[1.7] text-ink-soft">
                 Promouvoir la transparence démocratique et la déontologie
                 publique par le numérique, l'open data et l'intelligence
-                artificielle ; développer des outils citoyens libres et gratuits
+                artificielle ; développer des outils citoyens libres et gratuits
                 permettant l'accès, l'analyse et la diffusion de données
-                publiques relatives à la vie politique française et européenne ;
+                publiques relatives à la vie politique française et européenne ;
                 favoriser l'éducation civique, l'engagement citoyen et la
                 participation démocratique.
               </p>

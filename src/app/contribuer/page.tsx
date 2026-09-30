@@ -8,7 +8,7 @@ import SquareList from "@/components/ui/SquareList";
 export const metadata: Metadata = {
   title: "Contribuer",
   description:
-    "Comment contribuer aux projets de l'Association Sankofa : développement, modération, dons.",
+    "Comment contribuer aux projets de l'Association Sankofa : développement, modération, dons.",
 };
 
 const PRINCIPES = [
@@ -21,11 +21,11 @@ const VOIES = [
   {
     titre: "Développement",
     texte:
-      "Le code de Poligraph est open source. Contribuez au développement de nouvelles fonctionnalités, corrigez des bugs, ou améliorez les pipelines de données.",
+      "Le code de Poligraph est open source. Vous pouvez corriger un bug, proposer une fonctionnalité ou améliorer un pipeline de données.",
     items: [
       "Next.js, React, TypeScript",
       "Prisma, PostgreSQL",
-      "Pipelines de sync (Inngest)",
+      "Pipelines de synchronisation (Inngest)",
       "Serveur MCP",
     ],
     lien: {
@@ -37,7 +37,7 @@ const VOIES = [
   {
     titre: "Modération éditoriale",
     texte:
-      "Aidez-nous à vérifier et enrichir les données : fiches politiques, affaires judiciaires, fact-checks. La qualité des données est notre priorité.",
+      "Aidez-nous à vérifier et à compléter les fiches politiques, les affaires judiciaires et les fact-checks.",
     items: [
       "Vérification des sources",
       "Enrichissement des fiches",
@@ -53,7 +53,7 @@ const VOIES = [
   {
     titre: "Données et recherche",
     texte:
-      "Chercheurs, data scientists, journalistes : utilisez nos données pour vos travaux. Signalez-nous de nouvelles sources ou proposez des analyses.",
+      "Chercheurs, data scientists, journalistes : utilisez nos données pour vos travaux. Signalez-nous de nouvelles sources ou proposez des analyses.",
     items: [
       "API publique disponible",
       "Serveur MCP pour requêtes IA",
@@ -81,8 +81,8 @@ export default function ContribuerPage() {
               Quatre façons d'aider
             </h1>
             <p className="max-w-[58ch] text-[19px] leading-[1.55] text-ink-soft">
-              Code, données, vérification des sources ou financement : voici
-              comment aider concrètement.
+              Écrire du code, vérifier des sources, exploiter nos données pour
+              vos travaux ou financer l'association.
             </p>
           </div>
           <div className="mt-8 lg:mt-0 lg:border-l lg:border-rule lg:pl-12">
@@ -147,8 +147,8 @@ export default function ContribuerPage() {
               </h2>
               <p className="mb-6 max-w-[52ch] text-[17px] leading-[1.6] text-[rgba(250,247,240,0.75)]">
                 Sankofa fonctionne sans publicité et sans financement privé.
-                Chaque don nous aide à maintenir les serveurs, développer de
-                nouvelles fonctionnalités et rester indépendants.
+                Les dons paient les serveurs et le développement de nouvelles
+                fonctionnalités : c'est ce qui nous garde indépendants.
               </p>
               <p className="font-mono text-[13px] leading-[1.6] text-gold">
                 Même un petit montant couvre les frais de serveurs, de noms de

@@ -37,7 +37,7 @@ const INDEX: Ligne[] = [
   {
     nom: "CNuisible",
     objet:
-      "Déontologie journalistique : sanctions Arcom, avis CDJM, Charte de Munich",
+      "Déontologie journalistique : sanctions Arcom, avis CDJM, Charte de Munich",
     statut: "en production",
     accent: "bg-terra",
     lien: { href: "https://cnuisible.fr", label: "cnuisible.fr" },
@@ -84,12 +84,12 @@ const FEATURES_REPERES = [
 
 const FEATURES_CNUISIBLE = [
   "Documentation factuelle des infractions sourcées",
-  "Mapping vers les 10 devoirs de la Charte de Munich",
+  "Correspondance avec les 10 devoirs de la Charte de Munich",
   "Témoignages anonymisés de journalistes ex-CNews",
   "Cartographie de la galaxie médiatique Bolloré",
   "Export PDF du dossier pour l'Arcom et les élus",
   "Filtres par type d'infraction et article de la Charte",
-  "Page « Pourquoi ce site » avec méthodologie complète",
+  "Page « Pourquoi ce site » avec méthodologie complète",
 ];
 
 export default async function ProjetsPage() {
@@ -240,16 +240,15 @@ export default async function ProjetsPage() {
             </h2>
             <p className="mb-5 max-w-[62ch] text-[17px] leading-[1.6] text-ink-soft">
               Poligraph est une plateforme web qui agrège et croise les données
-              publiques sur les responsables politiques français : votes
+              publiques sur les responsables politiques français : votes
               parlementaires, affaires judiciaires, fact-checks, affiliations,
               déclarations de patrimoine et mandats.
             </p>
             <p className="mb-9 max-w-[62ch] text-[17px] leading-[1.6] text-ink-soft">
-              Le projet tire ses données de {stats.sources} sources de données
-              publiques (Assemblée nationale, Sénat, Gouvernement, HATVP,
-              Parlement européen, Wikidata, etc.) et les rend accessibles via
-              une interface web et un serveur MCP compatible avec les assistants
-              IA.
+              Ses données viennent de {stats.sources} sources publiques
+              (Assemblée nationale, Sénat, Gouvernement, HATVP, Parlement
+              européen, Wikidata, etc.). On les consulte sur le site web ou par
+              un serveur MCP compatible avec les assistants IA.
             </p>
 
             <h3 className="mb-4 font-mono text-[11px] font-medium tracking-[0.12em] uppercase text-ink-mute">
@@ -336,14 +335,14 @@ export default async function ProjetsPage() {
             <p className="mb-5 max-w-[62ch] text-[17px] leading-[1.6] text-ink-soft">
               CNuisible documente chaque sanction de l'Arcom contre CNews,
               chaque avis du Conseil de déontologie journalistique (CDJM),
-              chaque manquement à la Charte de Munich (1971). Tout est sourcé,
-              vérifiable, partageable.
+              chaque manquement à la Charte de Munich (1971). Tout est sourcé
+              et peut être partagé.
             </p>
             <p className="mb-9 max-w-[62ch] text-[17px] leading-[1.6] text-ink-soft">
-              Le projet ne juge pas les opinions : il mesure l'écart entre une
+              Le projet ne juge pas les opinions : il mesure l'écart entre une
               pratique éditoriale et les standards professionnels. Chaque fait
-              est sourcé par une URL vérifiable, relu avant publication, et le
-              droit de réponse est ouvert.
+              renvoie à une URL vérifiable et passe en relecture avant
+              publication. Le droit de réponse est ouvert.
             </p>
 
             <h3 className="mb-4 font-mono text-[11px] font-medium tracking-[0.12em] uppercase text-ink-mute">
@@ -392,8 +391,9 @@ export default async function ProjetsPage() {
               </h3>
               <p className="text-[15px] leading-[1.6] text-ink-soft">
                 Chaque fait est sourcé par une URL vérifiable (Arcom, CDJM,
-                Conseil d'État, presse). Formulation factuelle, revue humaine
-                avant publication, droit de réponse ouvert.
+                Conseil d'État, presse). La formulation reste factuelle et une
+                personne relit chaque fait avant publication. Le droit de
+                réponse est ouvert.
               </p>
             </div>
           </div>
@@ -484,7 +484,7 @@ export default async function ProjetsPage() {
           <div className="flex flex-col items-start gap-6 bg-surface-2 p-8 sm:p-10 md:flex-row md:items-center md:justify-between">
             <div>
               <h2 className="mb-2 text-[25px] font-semibold tracking-[-0.025em] text-ink">
-                Vous avez une idée de projet ?
+                Vous avez une idée de projet ?
               </h2>
               <p className="text-[16px] text-ink-soft">
                 D'autres chantiers sont ouverts.
