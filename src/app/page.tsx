@@ -254,7 +254,48 @@ export default async function Home() {
         </Container>
       </section>
 
-      {/* 6. Soutenir, seul bloc plein de la page */}
+      {/* 6. Repères, projet documentaire */}
+      <section className="border-b border-rule bg-surface">
+        <Container className="grid grid-cols-1 py-20 lg:grid-cols-[1fr_1.4fr] lg:gap-14">
+          <div>
+            <Overline className="mb-6">
+              Projet documentaire · en production
+            </Overline>
+            <h2 className="mb-4 text-[clamp(28px,4.5vw,34px)] font-bold leading-[1.05] tracking-[-0.035em] text-ink">
+              Repères : Gaza et la France
+            </h2>
+            <a
+              href="https://reperes-gaza.fr/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-[13px] tracking-[0.06em] text-gold-text underline transition-colors duration-150 hover:text-ink"
+            >
+              reperes-gaza.fr &rarr;
+            </a>
+          </div>
+          <div className="mt-8 lg:mt-0">
+            <p className="mb-5 text-[17px] leading-[1.6] text-ink-soft">
+              Repères aide à situer Gaza, l'histoire du conflit et les
+              décisions de la France. Chaque notice part de documents que le
+              lecteur peut ouvrir lui-même : textes de l'ONU, avis de la Cour
+              internationale de Justice, débats de l'Assemblée nationale,
+              décisions de justice.
+            </p>
+            <p className="mb-9 text-[17px] leading-[1.6] text-ink-soft">
+              Le site ne tranche pas à la place du lecteur. Une carte permet de
+              retrouver les notices qui concernent Gaza ou la Cisjordanie, et
+              le corpus se télécharge en JSON ou en CSV.
+            </p>
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+              <Stat value="7" label="notices, de 1948 à 2024" size="medium" />
+              <Stat value="21" label="sources citées" size="medium" />
+              <Stat value="2" label="territoires sur la carte" size="medium" />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* 7. Soutenir, seul bloc plein de la page */}
       <section className="py-20">
         <Container>
           <div className="grid grid-cols-1 gap-10 bg-indigo p-8 sm:p-10 lg:grid-cols-[1.2fr_1fr] lg:p-16">

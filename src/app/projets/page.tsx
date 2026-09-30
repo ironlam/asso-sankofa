@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "Poligraph, CNuisible et Repères : les projets de l'Association Sankofa.",
 };
 
-const REPERES = "https://app-0994a14a-5e02-4ace-9534-7571f27dd242.cleverapps.io/";
+const REPERES = "https://reperes-gaza.fr/";
 
 const DATA_GOUV =
   "https://www.data.gouv.fr/dataservices/poligraph-api-transparence-politique-affaires-judiciaires-et-fact-checks-rest-json";
