@@ -85,11 +85,10 @@ const FEATURES_REPERES = [
 const FEATURES_CNUISIBLE = [
   "Documentation factuelle des infractions sourcées",
   "Correspondance avec les 10 devoirs de la Charte de Munich",
-  "Témoignages anonymisés de journalistes ex-CNews",
   "Cartographie de la galaxie médiatique Bolloré",
   "Export PDF du dossier pour l'Arcom et les élus",
   "Filtres par type d'infraction et article de la Charte",
-  "Page « Pourquoi ce site » avec méthodologie complète",
+  "Page « Pourquoi ce site » qui explique la méthode",
 ];
 
 export default async function ProjetsPage() {
@@ -97,7 +96,7 @@ export default async function ProjetsPage() {
   const nombre = (valeur: number) => valeur.toLocaleString("fr-FR");
 
   const featuresPoligraph = [
-    `Fiches complètes de ${nombre(stats.politiques)} responsables politiques`,
+    `Fiches de ${nombre(stats.politiques)} responsables politiques`,
     `Analyse de ${nombre(stats.scrutins)} scrutins parlementaires`,
     `Suivi de ${nombre(stats.affaires)} affaires judiciaires sourcées`,
     `${nombre(stats.dossiers)} dossiers législatifs avec impact citoyen`,
@@ -333,10 +332,10 @@ export default async function ProjetsPage() {
               CNuisible
             </h2>
             <p className="mb-5 max-w-[62ch] text-[17px] leading-[1.6] text-ink-soft">
-              CNuisible documente chaque sanction de l'Arcom contre CNews,
-              chaque avis du Conseil de déontologie journalistique (CDJM),
-              chaque manquement à la Charte de Munich (1971). Tout est sourcé
-              et peut être partagé.
+              CNuisible recense des sanctions de l'Arcom contre CNews, des avis
+              du Conseil de déontologie journalistique (CDJM) et des manquements
+              à la Charte de Munich (1971). Chaque cas publié cite sa source et
+              peut être partagé.
             </p>
             <p className="mb-9 max-w-[62ch] text-[17px] leading-[1.6] text-ink-soft">
               Le projet ne juge pas les opinions : il mesure l'écart entre une

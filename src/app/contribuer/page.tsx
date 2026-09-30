@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 };
 
 const PRINCIPES = [
-  "Tout le code est ouvert.",
-  "Toutes les données sont sourcées.",
+  "Le code de Poligraph et de Repères est public.",
+  "Les faits publiés renvoient à leurs sources.",
   "Aucune contribution n'est trop petite.",
 ];
 

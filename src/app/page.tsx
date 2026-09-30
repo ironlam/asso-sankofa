@@ -54,12 +54,14 @@ export default async function Home() {
             <h1 className="mb-7 text-[clamp(34px,9vw,46px)] font-bold leading-[0.98] tracking-[-0.045em] lg:text-[clamp(46px,5.6vw,76px)]">
               Données politiques.
               <br />
-              <span className="text-indigo">Transparence réelle.</span>
+              <span className="text-indigo">Sources à l'appui.</span>
             </h1>
             <p className="mb-10 max-w-[54ch] text-[19px] leading-[1.55] text-ink-soft">
               Nous développons des outils open source pour cartographier les
               votes, les affaires judiciaires et les manquements déontologiques
-              des médias et responsables politiques français.
+              des médias et responsables politiques français. Avec Repères, nous
+              rassemblons aussi les documents qui permettent d'examiner les
+              décisions de la France à propos de Gaza.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button href="/projets" arrow>
@@ -220,8 +222,8 @@ export default async function Home() {
           <div className="mt-8 lg:mt-0">
             <p className="mb-5 text-[17px] leading-[1.6] text-ink-soft">
               CNuisible est un outil de contrôle citoyen de la déontologie
-              journalistique. Il documente et source chaque sanction de l'Arcom
-              contre CNews, chaque avis du CDJM et chaque manquement à la
+              journalistique. Il documente, avec leurs sources, des sanctions
+              de l'Arcom contre CNews, des avis du CDJM et des manquements à la
               Charte de Munich.
             </p>
             <p className="mb-9 text-[17px] leading-[1.6] text-ink-soft">
