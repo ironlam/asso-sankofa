@@ -12,6 +12,10 @@ const NAV = [
 const PROJETS = [
   { href: "https://poligraph.fr", label: "poligraph.fr" },
   { href: "https://cnuisible.fr", label: "cnuisible.fr" },
+  {
+    href: "https://app-0994a14a-5e02-4ace-9534-7571f27dd242.cleverapps.io/",
+    label: "Repères",
+  },
   { href: "https://github.com/ironlam", label: "GitHub" },
 ];
 

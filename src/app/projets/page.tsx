@@ -9,8 +9,10 @@ import { getStats } from "@/lib/stats";
 export const metadata: Metadata = {
   title: "Projets",
   description:
-    "Les projets de l'Association Sankofa pour la transparence démocratique.",
+    "Poligraph, CNuisible et Repères : les projets de l'Association Sankofa.",
 };
+
+const REPERES = "https://app-0994a14a-5e02-4ace-9534-7571f27dd242.cleverapps.io/";
 
 const DATA_GOUV =
   "https://www.data.gouv.fr/dataservices/poligraph-api-transparence-politique-affaires-judiciaires-et-fact-checks-rest-json";
@@ -41,6 +43,14 @@ const INDEX: Ligne[] = [
     lien: { href: "https://cnuisible.fr", label: "cnuisible.fr" },
   },
   {
+    nom: "Repères",
+    objet:
+      "Gaza, l'histoire du conflit et les décisions de la France, à partir de documents consultables",
+    statut: "en production",
+    accent: "bg-gold",
+    lien: { href: REPERES, label: "voir le site" },
+  },
+  {
     nom: "Déontologie publique",
     objet:
       "Suivi des obligations déontologiques des élus et responsables publics",
@@ -63,6 +73,14 @@ const STACK_POLIGRAPH =
 
 const STACK_CNUISIBLE =
   "Next.js 16 · React 19 · TypeScript · Supabase · Tailwind CSS 4 · Vercel";
+
+const FEATURES_REPERES = [
+  "Sept notices, de 1948 à 2024, chacune appuyée sur des documents que l'on peut ouvrir",
+  "Une carte de situation (Natural Earth) pour trouver les notices qui concernent Gaza ou la Cisjordanie",
+  "La résolution 2334 du Conseil de sécurité (2016) en détail : le vote, puis les suites de chaque paragraphe",
+  "Un lexique et une page de méthode",
+  "Corpus téléchargeable en JSON et en CSV",
+];
 
 const FEATURES_CNUISIBLE = [
   "Documentation factuelle des infractions sourcées",
@@ -99,8 +117,9 @@ export default async function ProjetsPage() {
           </h1>
           <p className="max-w-[60ch] text-[19px] leading-[1.55] text-ink-soft">
             Poligraph cartographie la vie politique française. CNuisible
-            documente les manquements à la déontologie journalistique. Deux
-            autres chantiers sont ouverts.
+            documente les manquements à la déontologie journalistique. Repères
+            aide à situer Gaza et les décisions de la France à partir de
+            documents publics. Deux autres chantiers sont ouverts.
           </p>
         </Container>
       </section>
@@ -381,7 +400,85 @@ export default async function ProjetsPage() {
         </Container>
       </section>
 
-      {/* 5. Une idee de projet */}
+      {/* 5. Fiche Repères */}
+      <section className="border-b border-rule bg-surface">
+        <Container className="grid grid-cols-1 py-20 lg:grid-cols-[1.25fr_1fr] lg:gap-14">
+          <div>
+            <Overline className="mb-6">
+              03 · Projet documentaire · en production
+            </Overline>
+            <h2 className="mb-6 text-[clamp(28px,3.6vw,44px)] font-bold leading-[1.05] tracking-[-0.04em] text-ink">
+              Repères : Gaza et la France
+            </h2>
+            <p className="mb-5 max-w-[62ch] text-[17px] leading-[1.6] text-ink-soft">
+              Repères aide à situer Gaza, l'histoire du conflit et les
+              décisions de la France. Chaque notice s'appuie sur des documents
+              que le lecteur peut ouvrir lui-même, issus de l'ONU, de la Cour
+              internationale de Justice, de la Cour de justice de l'Union
+              européenne (CJUE), du ministère des Affaires étrangères, du
+              Journal officiel et du Conseil d'État.
+            </p>
+            <p className="mb-9 max-w-[62ch] text-[17px] leading-[1.6] text-ink-soft">
+              Le but est de permettre à chacun de se faire une opinion, pas de
+              lui en fournir une. Certaines notices portent sur une décision
+              française, d'autres donnent le contexte. Le site ne donne pas de
+              bilan chiffré de la guerre et ne contient aucun témoignage.
+            </p>
+
+            <h3 className="mb-4 font-mono text-[11px] font-medium tracking-[0.12em] uppercase text-ink-mute">
+              Fonctionnalités
+            </h3>
+            <SquareList items={FEATURES_REPERES} className="mb-9" />
+
+            <h3 className="mb-3 font-mono text-[11px] font-medium tracking-[0.12em] uppercase text-ink-mute">
+              Licences
+            </h3>
+            <p className="mb-9 font-mono text-[13px] leading-[1.7] text-ink-soft">
+              Code sous licence MIT · Notices sous licence CC BY 4.0
+            </p>
+
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Button href={REPERES} external arrow>
+                Visiter Repères
+              </Button>
+              <Button
+                href="https://github.com/Asso-Sankofa/reperes-gaza"
+                variant="ghost"
+                external
+              >
+                Code source sur GitHub
+              </Button>
+            </div>
+          </div>
+
+          <div className="mt-10 lg:mt-0 lg:border-l lg:border-rule lg:pl-14">
+            <h3 className="mb-4 font-mono text-[11px] font-medium tracking-[0.12em] uppercase text-ink-mute">
+              Chiffres clés
+            </h3>
+            <DataTable
+              className="mb-10"
+              rows={[
+                { label: "Notices", value: "7" },
+                { label: "Période couverte", value: "1948 à 2024" },
+                { label: "Formats du corpus", value: "JSON, CSV" },
+              ]}
+            />
+            <div className="bg-surface-2 p-8">
+              <h3 className="mb-3 font-mono text-[11px] font-medium tracking-[0.12em] uppercase text-gold-text">
+                Relecture
+              </h3>
+              <p className="text-[15px] leading-[1.6] text-ink-soft">
+                Une relecture éditoriale a porté sur l'ensemble du site en
+                septembre 2026, avant l'ajout de la carte de situation. Les
+                textes historiques et juridiques n'ont pas été relus par un
+                historien ou un juriste.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* 6. Une idee de projet */}
       <section className="py-16">
         <Container>
           <div className="flex flex-col items-start gap-6 bg-surface-2 p-8 sm:p-10 md:flex-row md:items-center md:justify-between">
